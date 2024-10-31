@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update person</title>
+    <style>
+        {
+          box-sizing: border-box
+        }
+
+        .container {
+          padding: 16px;
+        }
+
+        input[type=text], input[type=password] {
+          width: 100%;
+          padding: 15px;
+          margin: 5px 0 22px 0;
+          display: inline-block;
+          border: none;
+          background: #f1f1f1;
+          border-radius: 5px;
+        }
+
+        input[type=text]:focus, input[type=password]:focus {
+          background-color: #ddd;
+          outline: none;
+        }
+
+        hr {
+          border: 1px solid #f1f1f1;
+          margin-bottom: 25px;
+        }
+
+        /* Set a style for the submit/register button */
+        .registerbtn {
+          background-color: #007bff;
+          color: white;
+          padding: 16px 20px;
+          margin: 8px 0;
+          border: none;
+          cursor: pointer;
+          width: 100%;
+          opacity: 0.9;
+          border-radius: 5px;
+        }
+
+        .registerbtn:hover {
+          opacity:1;
+        }
+
+        /* Add a blue text color to links */
+        a {
+          color: dodgerblue;
+        }
+
+    </style>
+</head>
+<body>
+
+<form th:method="PATCH" th:action="@{/people/{id}(id=${person.getId()})}" th:object="${person}">
+    <div class="container">
+        <label for="name">Enter name: </label>
+        <input type="text" th:field="*{name}" id="name"/>
+        <br/>
+        <label for="surname">Enter age: </label>
+        <input type="text" th:field="*{surname}" id="surname"/>
+        <br/>
+        <label for="yearOfBirth">Enter year of birth: </label>
+        <input type="text" th:field="*{yearOfBirth}" id="yearOfBirth"/>
+        <br/>
+        <input type="submit" class="registerbtn" value="Update!"/>
+    </div>
+</form>
+
+</body>
+</html>
